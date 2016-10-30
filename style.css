@@ -1,0 +1,16 @@
+
+nav .brand-logo {
+  color: #62BECB;
+  font-size: 3rem;
+  font-family: 'Quicksand: 700', sans-serif;
+}
+nav {
+  background-color: #3F4038;
+}
+ footer.page-footer {
+  background-color: #3F4038;
+  font-family: 'Quicksand', sans-serif;
+}
+main {
+  flex: 1 0 auto;
+}
