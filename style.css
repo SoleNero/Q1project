@@ -19,6 +19,7 @@ main {
   flex: 1 0 auto;
   padding-top: 20px;
 }
+
 input {
   color:white;
 }
@@ -27,6 +28,12 @@ input {
   position: fixed;
   width: auto;
   z-index: 0;
+}
+
+.highlight {
+  z-index: 99;
+  background-color: white;
+  color: black;
 }
 
 body {
