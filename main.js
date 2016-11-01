@@ -41,7 +41,7 @@
       });
     }
 
-    var apiData= {};
+    var apiData= [];
     function getData(apiURL) {
       var $xhr = $.getJSON(apiURL); //getJSON
 
@@ -59,7 +59,7 @@
               time: data[i].datetime.slice(11,16),
               url: data[i].venue.url //returns undefined!!!!
             };
-            apiData = obj;
+            apiData.push(obj);
           }
           console.log(apiData);
           addTable(apiData);
@@ -67,17 +67,18 @@
     }
 
     function addTable(apiData) {
-      for (var key in apiData) {
-        if (apiData.hasOwnProperty(key)) {
-          $("<tr></tr>").appendTo( '.highlight tbody' ).append('<tr id="'+i+'"><td class="time">'+apiData.time+'</td><th id="listen">' + apiData.artist + '</th><td id="'+i+'">' + apiData.venue + '</td><td><a href=' + apiData.url + ' target="_blank">Tickets</a></td></tr>');
+      for (var i = 0; i < apiData.length; i++) {
+        if (apiData) {
+          $("<tr></tr>").appendTo( '.highlight tbody' ).append('<tr id="'+i+'"><td class="time">'+apiData[i].time+'</td><th id="listen">' + apiData[i].artist + '</th><td id="'+i+'">' + apiData[i].venue + '</td><td><a href='
+          // apiData[i].url + ' target="_blank">Tickets</a></td></tr>
+          );
         }
+      }
     }
-  }
 
 })();
 
-// $("<tr></tr>").appendTo( '#table tbody' )
-//               .append("<td>blah</td><td>blah</td><td>blah</td>");
+
 
 // for (var i = 0; i < res.length; i++) {
 //                     musician = res[i].artists[0].name;

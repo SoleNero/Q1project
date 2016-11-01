@@ -20,20 +20,29 @@ main {
   padding-top: 20px;
 }
 
-input {
-  color:white;
+#input {
+  color: rgb(122, 32, 30);
+  font-size: 1rem;
+  font-family: 'Quicksand: 700', sans-serif;
+  background-color: rgba(251, 250, 249, 0.5);
+}
+
+button {
+  font-size: 1rem;
+  font-weight: normal;
 }
 
 .responsive-img{
   position: fixed;
   width: auto;
-  z-index: 0;
+  z-index: -1;
 }
 
 .highlight {
-  z-index: 99;
-  background-color: white;
-  color: black;
+  color: rgb(122, 32, 30);
+  font-family: 'Quicksand', sans-serif;
+  background-color: rgba(251, 250, 249, 0.5);
+  font-weight: bold;
 }
 
 body {
