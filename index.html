@@ -48,7 +48,6 @@
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper"><a class="brand-logo center" href="index.html">let'sGOout</a>
-        <!-- <h6 class="jam center">Find your jam for tonigt!</h6> -->
       </div>
     </nav>
   </div>
@@ -58,53 +57,110 @@
   <!-- main container -->
   <img class="responsive-img" src="img/bcg-img.jpeg"> //its not responsive, fixed later!!
 
-<!--FORMS-->
+<!--FORMS---------------------------------------------->
   <main class="container">
-    <div id="input">
     <!--CITY-->
+    <div class="row">
+    <form class="col s6" id="input">
       <div class="row">
-        <form>
+        <!--CITY-->
+        <div class="input-field col s7">
+          <input id="search-by-city" type="text" class="validate">
+          <label for="search-by-city">City</label>
+        </div>
+        <!--/.CITY-->
+        <!--ARTIST-->
+        <!-- <div class="input-field col s5">
+          <input id="search-by-artist" type="text" class="validate">
+          <label for="search-by-artist">Artist</label>
+        </div> -->
+        <!--/.ARTIST-->
+      </div>
+      <!--STATE-->
+      <div class="row">
+        <div class="input-field col s7">
+          <input id="search-by-state" type="text" class="validate">
+          <label for="search-by-state">State</label>
+        </div>
+      </div>
+      <!--/.STATE-->
+      <!--Radius-->
+      <div class="row">
+        <div class="input-field col s7">
+          <input id="search-by-radius" type="text" class="validate">
+          <label for="search-by-radius">Within how many miles?</label>
+        </div>
+        <div class="col s5">
+          <button id="searchBtn" class="btn-large waves-effect waves-light" type="submit" name="action" value="search">
+            <i class="material-icons right">search</i>
+            Search
+          </button>
+        </div>
+      </div>
+      <!--/.Radius-->
+
+  <!--BUTTON------------------------------>
+          <!-- <div class="col s3">
+            <button id="searchBtn" class="btn-large waves-effect waves-light" type="submit" name="action" value="search">
+              <i class="material-icons right">search</i>
+              Search
+            </button>
+          </div> -->
+  <!--/.BUTTON---------------------------->
+
+  <div class="row">
+    <div class="input-field col s7">
+      <input id="search-by-artist" type="text" class="validate">
+      <label for="search-by-artist">Artist</label>
+    </div>
+    <div class="col s5">
+      <button id="searchBtn2" class="btn-large waves-effect waves-light" type="submit" name="action" value="search">
+        <i class="material-icons right">search</i>
+        Search
+      </button>
+    </div>
+  </div>
+</form>
+</div>
+    <!--CITY-->
+      <!-- <div class="row">
+        <form class="searchForm">
           <div class="col offset-s2 s7">
             <div class="input-field">
                 <input id="search-by-city" type="text" placeholder="ENTER CITY" name="search"/>
             </div>
           </div>
         </form>
-      </div>
+      </div> -->
 
       <!--Radius-->
-      <div class="row">
-        <form>
+      <!-- <div class="row">
+        <form class="searchForm">
           <div class="col offset-s2 s7">
             <div class="input-field">
-              <input id="search-by-radius" type="text" placeholder="ENTER RADIUS" name="search1" />
+              <input id="search-by-radius" type="text" placeholder="ENTER RADIUS" name="search1"/>
             </div>
           </div>
         </form>
-      </div>
+      </div> -->
 
       <!--ARTIST-->
-      <div class="row">
-        <form>
+      <!-- <div class="row">
+        <form class="searchForm">
           <div class="col offset-s2 s7">
             <div class="input-field">
-              <input id="search-by-artist" type="text" placeholder="ENTER ARTIST" name="search2" />
+              <input id="search-by-artist" type="text" placeholder="ENTER ARTIST" name="search2"/>
             </div>
-          </div>
-          <!--button-->
-          <div class="col s3">
-            <button class="btn-large waves-effect waves-light" type="submit" name="action" value="search">
-              <i class="material-icons right">search</i>
-              Search
-            </button>
-          </div>
-          <!--/.button-->
-        </form>
-      </div>
-      </div>
-<!--/.FORMS-->
+          </div> -->
 
-<!--LISTING AREA-->
+
+        <!-- </form>
+      </div>
+      </div> -->
+<!--/.FORMS-------------------------------------------->
+
+<!--LISTING AREA--------------------------------------->
+          <!--table-->
       <div id="listings" class="row">
         <section>
         <aside>
@@ -120,6 +176,7 @@
       </section>
       </div>
   </main>
+        <!--table-->
 <!--/. main container -->
 <!-- footer -->
 <footer class="page-footer">

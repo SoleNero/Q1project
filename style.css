@@ -1,36 +1,52 @@
+body {
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
+/*NAVIGATION*/
 nav .brand-logo {
   color: #62BECB;
   font-size: 3rem;
   font-family: 'Quicksand: 700', sans-serif;
 }
-
 .nav-wrapper {
   color: #62BECB;
   font-family: 'Quicksand: 700', sans-serif;
 }
-
 nav {
   background-color: #3F4038;
   min-height: 10vh;
 }
+/************************************/
 
+/*MAIN*/
 main {
   flex: 1 0 auto;
   padding-top: 20px;
 }
-
+/*FORM*/
 #input {
-  color: rgb(122, 32, 30);
+  color: white;
   font-size: 1rem;
   font-family: 'Quicksand: 700', sans-serif;
-  background-color: rgba(251, 250, 249, 0.5);
+  background-color: rgba(80, 80, 80, 0.5);  
 }
-
 button {
   font-size: 1rem;
   font-weight: normal;
 }
+.highlight {
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  background-color: rgba(80, 80, 80, 0.5);
+  font-weight: bold;
+}
+.hightlight:hover {
+  color: black;
+}
+/*END of FORM*/
 
 .responsive-img{
   position: fixed;
@@ -38,21 +54,7 @@ button {
   z-index: -1;
 }
 
-.highlight {
-  color: rgb(122, 32, 30);
-  font-family: 'Quicksand', sans-serif;
-  background-color: rgba(251, 250, 249, 0.5);
-  font-weight: bold;
-}
-
-body {
-  background: #f5f5f5;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  /*check this closer later*/
-}
-
+/*FOOTER*/
 footer.page-footer {
  background-color: #3F4038;
  font-family: 'Quicksand', sans-serif;

@@ -11,11 +11,9 @@
     $('.nav-wrapper').append([month, day, year].join('.'));
 
 
-
-
 // var declarations **********************************************
     var results = document.querySelector('#listings');
-    var userInputCity, userInputRadius, userInputArtist;
+    var userInputCity, userInputRadius, userInputArtist, userInputState;
 
     var proxyUrl = 'https://g-bandsintown.herokuapp.com/artists/';
     var apiKey = '/events.json?api_version=2.0&app_id=215155712241649';
@@ -23,24 +21,49 @@
 
 
 // button event **************************************************
-//input: city, radius, artist
-    var button = document.querySelectorAll('button');
-    for (var i = 0; i < button.length; i++) {
-      button[i].addEventListener('click', function (event) {
-        event.preventDefault();
 
-// user input, getting api
-        // userInputCity = document.getElementById('search-by-city').value;
-        // userInputRadius = document.getElementById('search-by-radius').value;
-        userInputArtist = document.getElementById('search-by-artist').value;
-        apiURL = proxyUrl + userInputArtist + apiKey;
+    // $('#searchBtn').on('click', function(){
+    //   event.preventDefault();
+    //
+    //
+    //
+    //   userInputCity = $('#search-by-city').val();
+    //   // console.log(userInputCity);
+    //   userInputRadius = $('#search-by-radius').val();
+    //   // console.log(userInputRadius);
+    //   userInputState = $('#search-by-state').val();
+    //   // console.log(userInputState);
+    //   // apiURL = proxyUrl + userInputArtist + apiKey;
+    //
+    //   getData(apiURL);
+    // })
 
-        // console.log(userInputArtist);
-        // console.log(apiURL);
-        getData(apiURL);
-      });
-    }
+    $('#searchBtn2').on('click', function(){
+      event.preventDefault();{
+      userInputArtist = $('#search-by-artist').val();
+      apiURL = `${proxyUrl}${userInputArtist}${apiKey}`;
+      // console.log(userInputArtist);
+      getData(apiURL);
+      console.log(apiURL);
+      }
+});
+//*************************************info helps*********
+// var city = $('input[name="city"]').val();
+//        var state = $('input[name="state"]').val();
+//        var miles = $('input[name="radius"]').val();
+//        var filterCity = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
 
+// `my name is ${userInputCity}` //template literals
+// if they use use it if not use defoult
+//example
+//http://api.bandsintown.com/artists/ Skrillex/    events/recommended?location=Boston,MA&radius=10&app_id=YOUR_APP_ID&api_version=2.0&format=json
+//form.change
+// .select
+// switch
+//event.target
+//
+
+//getting detail data from api ***********************************
     var apiData= [];
     function getData(apiURL) {
       var $xhr = $.getJSON(apiURL); //getJSON
@@ -65,7 +88,7 @@
           addTable(apiData);
       });
     }
-
+//appending data to the table *********************************************
     function addTable(apiData) {
       for (var i = 0; i < apiData.length; i++) {
         if (apiData) {
@@ -77,6 +100,7 @@
     }
 
 })();
+
 
 
 
