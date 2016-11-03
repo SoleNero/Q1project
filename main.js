@@ -30,13 +30,13 @@
       // var filterLocation = so it will work for Caps and low
        userInputMiles = $('#search-by-radius').val();
       //  console.log(userInputMiles);
-      // var upcoming = apiToday + ;
 //       https://g-bandsintown.herokuapp.com/events/search.json?api_version=2.0&app_id=215155712241649
 // // &location='Loveland,Colorado'
 // // &radius=5;
 
 
-      apiURL='https://g-bandsintown.herokuapp.com/events/search.json?api_version=2.0&app_id=215155712241649&location='+ userInputCity + ',' + userInputState + '&radius=' + userInputMiles + '&date=' + upcoming;
+
+      apiURL='https://g-bandsintown.herokuapp.com/events/search.json?api_version=2.0&app_id=215155712241649&location='+ userInputCity + ',' + userInputState + '&radius=' + userInputMiles + '&date=' + apiToday;
 
       // addTable(apiData);
       getData(apiURL);
