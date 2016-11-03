@@ -12,56 +12,56 @@
 
 
 // var declarations **********************************************
-    var results = document.querySelector('#listings');
-    var userInputCity, userInputRadius, userInputArtist, userInputState;
+    var userInputCity, userInputMiles, userInputArtist, userInputState;
 
     var proxyUrl = 'https://g-bandsintown.herokuapp.com/artists/';
     var apiKey = '/events.json?api_version=2.0&app_id=215155712241649';
     var apiURL;
 
 
-// button event **************************************************
+//************SEARCH CITY/STATE/RADIUS*************************************
+      $('#searchBtn').on('click', function(){
+      event.preventDefault();
 
-    // $('#searchBtn').on('click', function(){
-    //   event.preventDefault();
-    //
-    //
-    //
-    //   userInputCity = $('#search-by-city').val();
-    //   // console.log(userInputCity);
-    //   userInputRadius = $('#search-by-radius').val();
-    //   // console.log(userInputRadius);
-    //   userInputState = $('#search-by-state').val();
-    //   // console.log(userInputState);
-    //   // apiURL = proxyUrl + userInputArtist + apiKey;
-    //
-    //   getData(apiURL);
-    // })
+       userInputCity = $('#search-by-city').val();
+      //  console.log(userInputCity);
+       userInputState = $('#search-by-state').val();
+      //  console.log(userInputState);
+      // var filterLocation = so it will work for Caps and low
+       userInputMiles = $('#search-by-radius').val();
+      //  console.log(userInputMiles);
+      // var upcoming = apiToday + ;
+//       https://g-bandsintown.herokuapp.com/events/search.json?api_version=2.0&app_id=215155712241649
+// // &location='Loveland,Colorado'
+// // &radius=5;
 
+
+      apiURL='https://g-bandsintown.herokuapp.com/events/search.json?api_version=2.0&app_id=215155712241649&location='+ userInputCity + ',' + userInputState + '&radius=' + userInputMiles + '&date=' + upcoming;
+
+      // addTable(apiData);
+      getData(apiURL);
+
+    });
+//************SEARCH ARTIST**************************************
     $('#searchBtn2').on('click', function(){
-      event.preventDefault();{
+      event.preventDefault();
       userInputArtist = $('#search-by-artist').val();
+      // console.log(userInputArtist);
       apiURL = `${proxyUrl}${userInputArtist}${apiKey}`;
       // console.log(userInputArtist);
       getData(apiURL);
-      console.log(apiURL);
-      }
+      // console.log(apiURL);
+      $('#search-by-artist').empty();
 });
 //*************************************info helps*********
-// var city = $('input[name="city"]').val();
-//        var state = $('input[name="state"]').val();
-//        var miles = $('input[name="radius"]').val();
-//        var filterCity = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
+
 
 // `my name is ${userInputCity}` //template literals
-// if they use use it if not use defoult
+// if they use use it if not use default
 //example
+
 //http://api.bandsintown.com/artists/ Skrillex/    events/recommended?location=Boston,MA&radius=10&app_id=YOUR_APP_ID&api_version=2.0&format=json
-//form.change
-// .select
-// switch
-//event.target
-//
+
 
 //getting detail data from api ***********************************
     var apiData= [];
@@ -77,9 +77,12 @@
             var obj = {
               artist: data[i].artists[0].name,
               venue: data[i].venue.name,
+              city: data[i].venue.city,
+              region: data[i].venue.region,
               venueLat: data[i].venue.latitude,
               venueLng: data[i].venue.longitude,
               time: data[i].datetime.slice(11,16),
+              dat: data[i].datetime.slice(0,10),
               url: data[i].venue.url //returns undefined!!!!
             };
             apiData.push(obj);
@@ -92,9 +95,15 @@
     function addTable(apiData) {
       for (var i = 0; i < apiData.length; i++) {
         if (apiData) {
-          $("<tr></tr>").appendTo( '.highlight tbody' ).append('<tr id="'+i+'"><td class="time">'+apiData[i].time+'</td><th id="listen">' + apiData[i].artist + '</th><td id="'+i+'">' + apiData[i].venue + '</td><td><a href='
+          // console.log(apiData[i]);
+          if ((apiData[i].region).match(/[^0-9]/)){
+          $("<tr></tr>").appendTo( '.highlight tbody' ).append('<tr id="'+i+'"><td class="time">'+apiData[i].time+'</td><th id="listen">' + apiData[i].dat + '</td><td>' + apiData[i].artist + '</th><td id="'+i+'">' + apiData[i].venue + '</td><td>' + apiData[i].city + '</td><td>' +
+          apiData[i].region + '</td><td>'
           // apiData[i].url + ' target="_blank">Tickets</a></td></tr>
-          );
+        );}
+          else {
+          $("<tr></tr>").appendTo( '.highlight tbody' ).append('<tr id="'+i+'"><td class="time">'+apiData[i].time+'</td><th id="listen">' + apiData[i].artist + '</th><td id="'+i+'">' + apiData[i].venue + '</td><td>' + apiData[i].city +  '</td><td>'
+        );}
         }
       }
     }
