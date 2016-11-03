@@ -56,13 +56,11 @@ button {
   color:#FF665F;
   font-size: 20px;
   font-family: 'Quicksand', sans-serif;
+  text-shadow: 1px 1px 1px #37474f;
 }
 /*data is not bold anymore*/
 #listen{
   font-weight: normal;
-}
-tbody #table{
-  margin: auto;
 }
 /*END of FORM*/
 
