@@ -30,17 +30,19 @@ main {
 /*FORM*/
 #input {
   color: white;
-  font-size: 1rem;
-  font-family: 'Quicksand: 700', sans-serif;
-  background-color: rgba(80, 80, 80, 0.5);
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+  background-color: rgba(90, 90, 90, 0.5);
 }
-.row .col{
-  padding: 0 2rem;
-}
-/*.label {
+/*input labels white*/
+.input-field label {
   color: white;
-  font-family: 'Quicksand: 700', sans-serif;
-}*/
+  font-family: 'Quicksand', sans-serif;
+}
+/*moving table in the middle of the window*/
+.row .col.s12 {
+  margin-left: 20%;
+}
 button {
   font-size: 1rem;
   font-weight: normal;
@@ -48,11 +50,20 @@ button {
 .highlight {
   color: white;
   font-family: 'Quicksand', sans-serif;
-  background-color: rgba(80, 80, 80, 0.5);
-  font-weight: bold;
+  background-color: rgba(90, 90, 90, 0.65);
+}
+#table{
+  color:#FF665F;
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+}
+/*data is not bold anymore*/
+#listen{
+  font-weight: normal;
 }
 /*END of FORM*/
 
+/*background img*/
 .responsive-img{
   /* Set rules to fill background */
   min-height: 100%;
@@ -81,7 +92,4 @@ footer.page-footer {
  background-color: #3F4038;
  font-family: 'Quicksand', sans-serif;
  z-index: 10;
-}
-html{
-  height: 100%;
 }
