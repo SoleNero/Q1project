@@ -50,8 +50,6 @@ button {
   font-weight: normal;
 }
 .highlight {
-  color: white;
-  font-family: 'Quicksand', sans-serif;
   background-color: rgba(90, 90, 90, 0.65);
 }
 #table{
@@ -62,6 +60,9 @@ button {
 /*data is not bold anymore*/
 #listen{
   font-weight: normal;
+}
+tbody #table{
+  margin: auto;
 }
 /*END of FORM*/
 

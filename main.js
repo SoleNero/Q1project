@@ -99,7 +99,7 @@
           if ((apiData[i].region).match(/[^0-9]/)){
           $("<tr></tr>").appendTo( '.highlight tbody' ).append('<tr id="'+i+'"><td class="time">'+apiData[i].time+'</td><th id="listen">' + apiData[i].dat + '</td><td>' + apiData[i].artist + '</th><td id="'+i+'">' + apiData[i].venue + '</td><td>' + apiData[i].city + '</td><td>' +
           apiData[i].region + '</td><td>'
-          // apiData[i].url + ' target="_blank">Tickets</a></td></tr>
+          // apiData[i].url + ' target="_blank">Tickets</a></td></tr>'
         );}
           else {
           $("<tr></tr>").appendTo( '.highlight tbody' ).append('<tr id="'+i+'"><td class="time">'+apiData[i].time+'</td><th id="listen">' + apiData[i].artist + '</th><td id="'+i+'">' + apiData[i].venue + '</td><td>' + apiData[i].city +  '</td><td>'
