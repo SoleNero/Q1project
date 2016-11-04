@@ -30,11 +30,14 @@
       // var filterLocation = so it will work for Caps and low
        userInputMiles = $('#search-by-radius').val();
       //  console.log(userInputMiles);
-      
+      if ($("#search-by-radius") === 0){
+        apiURL='https://g-bandsintown.herokuapp.com/events/search.json?api_version=2.0&app_id=215155712241649&location='+ userInputCity + ',' + userInputState + '&radius=50' + '&date=' + apiToday;
+      } else {
       apiURL='https://g-bandsintown.herokuapp.com/events/search.json?api_version=2.0&app_id=215155712241649&location='+ userInputCity + ',' + userInputState + '&radius=' + userInputMiles + '&date=' + apiToday;
-
+      }   
       // addTable(apiData);
       getData(apiURL);
+      console.log(apiURL);
 
     });
 //************SEARCH ARTIST**************************************
@@ -45,7 +48,7 @@
       apiURL = `${proxyUrl}${userInputArtist}${apiKey}`;
       // console.log(userInputArtist);
       getData(apiURL);
-      // console.log(apiURL);
+
 });
 //getting detail data from api ***********************************
     var apiData= [];
@@ -72,30 +75,28 @@
             apiData.push(obj);
           }
 
-        console.log('about to call the emptyTable function');
-        emptyTable(apiData, addTable);
+        // console.log('about to call the emptyTable function');
+        addTable(apiData);
 
 
       });
     }
 //appending data to the table *********************************************
-
-    function emptyTable(apiData, cb) {
-      console.log("made it to the emptyTable function");
-      console.log($('#table'));
-      $("#table_id > tbody").html("");
-      console.log('about to call the addTable function');
-      cb(apiData);
-    }
+    //
+    // function emptyTable(apiData, cb) {
+    //   // console.log("made it to the emptyTable function");
+    //   // console.log($('#table'));
+    //   $("#table_id > tbody").html("");
+    //   // console.log('about to call the addTable function');
+    //   cb(apiData);
+    // }
 
 
     function addTable(apiData) {
-      console.log('just entered the addTable function');
-      $( '#input' ).each(function(){
+      // console.log('just entered the addTable function');
+      $( '#input' ).each(function(){ //removes values in form
       this.reset();
       });
-
-
       for (var i = 0; i < apiData.length; i++) {
         if (apiData) {
           // console.log(apiData[i]);
@@ -109,6 +110,7 @@
           $('<tr id="'+i+'"></tr>').appendTo( '.highlight tbody' ).append('<td class="time">'+apiData[i].time+'</td><td id="listen">' + apiData[i].dat + '</td><td>' + apiData[i].artist + '</td><td id="'+i+'">' + apiData[i].venue + '</td><td>' + apiData[i].city + '</td><td>'
         );}
         }
+
       }
 
     }
