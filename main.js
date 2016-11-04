@@ -30,12 +30,7 @@
       // var filterLocation = so it will work for Caps and low
        userInputMiles = $('#search-by-radius').val();
       //  console.log(userInputMiles);
-//       https://g-bandsintown.herokuapp.com/events/search.json?api_version=2.0&app_id=215155712241649
-// // &location='Loveland,Colorado'
-// // &radius=5;
-
-
-
+      
       apiURL='https://g-bandsintown.herokuapp.com/events/search.json?api_version=2.0&app_id=215155712241649&location='+ userInputCity + ',' + userInputState + '&radius=' + userInputMiles + '&date=' + apiToday;
 
       // addTable(apiData);
@@ -51,18 +46,7 @@
       // console.log(userInputArtist);
       getData(apiURL);
       // console.log(apiURL);
-      $('#search-by-artist').empty();
 });
-//*************************************info helps*********
-
-
-// `my name is ${userInputCity}` //template literals
-// if they use use it if not use default
-//example
-
-//http://api.bandsintown.com/artists/ Skrillex/    events/recommended?location=Boston,MA&radius=10&app_id=YOUR_APP_ID&api_version=2.0&format=json
-
-
 //getting detail data from api ***********************************
     var apiData= [];
     function getData(apiURL) {
@@ -87,45 +71,51 @@
             };
             apiData.push(obj);
           }
-          console.log(apiData);
-          addTable(apiData);
+
+        console.log('about to call the emptyTable function');
+        emptyTable(apiData, addTable);
+
+
       });
     }
 //appending data to the table *********************************************
+
+    function emptyTable(apiData, cb) {
+      console.log("made it to the emptyTable function");
+      console.log($('#table'));
+      $("#table_id > tbody").html("");
+      console.log('about to call the addTable function');
+      cb(apiData);
+    }
+
+
     function addTable(apiData) {
+      console.log('just entered the addTable function');
+      $( '#input' ).each(function(){
+      this.reset();
+      });
+
+
       for (var i = 0; i < apiData.length; i++) {
         if (apiData) {
           // console.log(apiData[i]);
           if ((apiData[i].region).match(/[^0-9]/)){
-          $("<tr></tr>").appendTo( '.highlight tbody' ).append('<tr id="'+i+'"><td class="time">'+apiData[i].time+'</td><th id="listen">' + apiData[i].dat + '</td><td>' + apiData[i].artist + '</th><td id="'+i+'">' + apiData[i].venue + '</td><td>' + apiData[i].city + '</td><td>' +
-          apiData[i].region + '</td><td>'
-          // apiData[i].url + ' target="_blank">Tickets</a></td></tr>'
+          $('<tr id="'+i+'"></tr>').appendTo( '.highlight tbody' ).append('<td class="time">'+apiData[i].time+'</td><td id="listen">' + apiData[i].dat + '</td><td>' + apiData[i].artist + '</td><td id="'+i+'">' + apiData[i].venue + '</td><td>' + apiData[i].city + '</td><td>' +
+          apiData[i].region + '</td><td></td>'
+          // apiData[i].url + ' target="_blank">Tickets</a>
+
         );}
           else {
-          $("<tr></tr>").appendTo( '.highlight tbody' ).append('<tr id="'+i+'"><td class="time">'+apiData[i].time+'</td><th id="listen">' + apiData[i].artist + '</th><td id="'+i+'">' + apiData[i].venue + '</td><td>' + apiData[i].city +  '</td><td>'
+          $('<tr id="'+i+'"></tr>').appendTo( '.highlight tbody' ).append('<td class="time">'+apiData[i].time+'</td><td id="listen">' + apiData[i].dat + '</td><td>' + apiData[i].artist + '</td><td id="'+i+'">' + apiData[i].venue + '</td><td>' + apiData[i].city + '</td><td>'
         );}
         }
       }
+
     }
 
+
+
 })();
-
-
-
-
-// for (var i = 0; i < res.length; i++) {
-//                     musician = res[i].artists[0].name;
-//                     var venue = res[i].venue.name;
-//                     var url = res[i].venue.url;
-//                     var venueLat = res[i].venue.latitude;
-//                     var venueLng = res[i].venue.longitude;
-//                     var time = res[i].datetime.slice(11,16);
-//                     map.setCenter({
-//                         lat: myLat,
-//                         lng: myLng
-//                     });
-//                     $('#table').append('<tr id="'+i+'"><td class="time">'+ time +'</td><th id="listen">' + musician + '</th><td id="'+i+'">' + venue + '</td><td><a href=' + url + ' target="_blank">Tickets</a></td></tr>');
-
 
 //1.get deta and locate it somewhere
 //2.var for each type of deta:
