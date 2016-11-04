@@ -34,7 +34,7 @@
         apiURL='https://g-bandsintown.herokuapp.com/events/search.json?api_version=2.0&app_id=215155712241649&location='+ userInputCity + ',' + userInputState + '&radius=50' + '&date=' + apiToday;
       } else {
       apiURL='https://g-bandsintown.herokuapp.com/events/search.json?api_version=2.0&app_id=215155712241649&location='+ userInputCity + ',' + userInputState + '&radius=' + userInputMiles + '&date=' + apiToday;
-      }   
+      }
       // addTable(apiData);
       getData(apiURL);
       console.log(apiURL);
@@ -60,6 +60,8 @@
               return;
           }
           // console.log(data);
+
+          apiData = [];
           for (var i = 0; i < data.length; i++) {
             var obj = {
               artist: data[i].artists[0].name,
@@ -97,9 +99,12 @@
       $( '#input' ).each(function(){ //removes values in form
       this.reset();
       });
+
+      $('#table').empty();
+
       for (var i = 0; i < apiData.length; i++) {
         if (apiData) {
-          // console.log(apiData[i]);
+          console.log(apiData[i]);
           if ((apiData[i].region).match(/[^0-9]/)){
           $('<tr id="'+i+'"></tr>').appendTo( '.highlight tbody' ).append('<td class="time">'+apiData[i].time+'</td><td id="listen">' + apiData[i].dat + '</td><td>' + apiData[i].artist + '</td><td id="'+i+'">' + apiData[i].venue + '</td><td>' + apiData[i].city + '</td><td>' +
           apiData[i].region + '</td><td></td>'
