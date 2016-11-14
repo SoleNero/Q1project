@@ -22,6 +22,3 @@ This application is made for people who love live music, anyone looking for some
   * Geolocation,
   * Spotify API to provide artist's most popular song (if available).
 
-
-
-http://letsgoout.surge.sh/
