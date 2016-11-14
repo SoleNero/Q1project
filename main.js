@@ -84,15 +84,6 @@
       });
     }
 //appending data to the table *********************************************
-    //
-    // function emptyTable(apiData, cb) {
-    //   // console.log("made it to the emptyTable function");
-    //   // console.log($('#table'));
-    //   $("#table_id > tbody").html("");
-    //   // console.log('about to call the addTable function');
-    //   cb(apiData);
-    // }
-
 
     function addTable(apiData) {
       // console.log('just entered the addTable function');
