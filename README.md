@@ -1,13 +1,18 @@
-Justyna Foster - Q1 Project - 'Let'sGOout'
+#### Justyna Foster - Q1 Project 
+## Let'sGOout
+---
 
-This application is made for people who love live music, anyone looking for some last minute plans, or
-looking for concerts of the specific artist.
+This application is made for people who love live music, anyone looking for some last minute plans, or looking for concerts of the specific artist.
 
-→ Uses Bands In Town API to display local live music events (within 50 miles) and to provide relevant details of event.
+![alt text](https://github.com/SoleNero/Q1project/blob/master/readme/main_page.png "Main page")
 
-→ Responsive cross browser that looks great on any sized device
+![alt text](https://github.com/SoleNero/Q1project/blob/master/readme/search_result.png "Search result")
 
-→ Stretch goals:
- - Google Map API to display events on an interactive map,
- - Geolocation,
- - Spotify API to provide artist's most popular song (if available).
+* Uses Bands In Town API to display local live music events (within 50 miles) and to provide relevant details of event.
+
+* Responsive cross browser that looks great on any sized device
+
+* Stretch goals: 
+  * Google Map API to display events on an interactive map,
+  * Geolocation,
+  * Spotify API to provide artist's most popular song (if available).
